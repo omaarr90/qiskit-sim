@@ -3,13 +3,14 @@ from alice import Alice
 from bob import Bob
 from eve import Eve
 from qiskit import QuantumCircuit
-
+from hkdf import convert
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 def simulate_bb84_without_eve(qc, num_qubits):
     alice = Alice(num_qubits, qc)
     bob = Bob(num_qubits, qc)
+
     # Call prepare_qubits explicitly
     qc.barrier(label="Alice - Start")
     alice.prepare_qubits()
@@ -33,12 +34,15 @@ def simulate_bb84_without_eve(qc, num_qubits):
     else:
         print("Key exchange failed.")
 
-    qc.draw("mpl")
+    alice_sifted_bitsExpanded =  convert(alice_sifted_bits,6)
+    bob_sifted_bitsExpanded =  convert(bob_sifted_bits,6)
+    return qc
 
 def simulate_bb84_with_eve(qc, num_qubits):
     alice = Alice(num_qubits, qc)
     bob = Bob(num_qubits, qc)
     eve = Eve(num_qubits, qc)
+
     # Call prepare_qubits explicitly
     qc.barrier(label="Alice - Start")
     alice.prepare_qubits()
