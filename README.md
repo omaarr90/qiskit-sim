@@ -1,4 +1,5 @@
 # To export pdf
+install: pip install Pyrebase4
 install xelatex: https://tug.org/mactex/mactex-download.html
 ## Hello QKD
 
