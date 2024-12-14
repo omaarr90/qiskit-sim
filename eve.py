@@ -2,7 +2,6 @@ import random
 
 from qiskit import ClassicalRegister, QuantumCircuit
 from qiskit_aer import AerSimulator
-
 from util import Basis
 
 

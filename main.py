@@ -3,7 +3,6 @@ from alice import Alice
 from bob import Bob
 from eve import Eve
 from qiskit import QuantumCircuit
-from hkdf import convert
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
@@ -33,10 +32,18 @@ def simulate_bb84_without_eve(qc, num_qubits):
         print("Key exchange was successful.")
     else:
         print("Key exchange failed.")
+    
+    alice_message = "Hello, Bob!".encode('utf-8')
+    alice_ciphertext = alice.encrypt(alice_message)
+    print(f"Alice's ciphertext: {alice_ciphertext}")
+    bob_plaintext = bob.decrypt(alice_ciphertext)
+    print(f"Bob's plaintext: {bob_plaintext}")
 
-    alice_sifted_bitsExpanded =  convert(alice_sifted_bits,6)
-    bob_sifted_bitsExpanded =  convert(bob_sifted_bits,6)
-    return qc
+    bob_message = "Hello, Alice!".encode('utf-8')
+    bob_ciphertext = bob.encrypt(bob_message)
+    print(f"Bob's ciphertext: {bob_ciphertext}")
+    alice_plaintext = alice.decrypt(bob_ciphertext)
+    print(f"Alice's plaintext: {alice_plaintext}")
 
 def simulate_bb84_with_eve(qc, num_qubits):
     alice = Alice(num_qubits, qc)

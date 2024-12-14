@@ -58,7 +58,7 @@ def convert(bits, output_length_in_bytes):
     # Output the derived key as a 48-bit binary string
     output_key = int.from_bytes(okm, 'big')
     print(f"48-bit derived key: {bin(output_key)[2:].zfill(48)}")
-    # print(okm)
+    print(f"okm is: {okm}")
     return okm
 # Input: 34-bit array
 # bits = [1, 0, 1, 0, 1, 0, 1, 1,  # 8 bits
