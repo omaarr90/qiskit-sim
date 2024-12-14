@@ -1,9 +1,7 @@
 import random
-
 from qiskit import ClassicalRegister, QuantumCircuit
 from qiskit_aer import AerSimulator
 from util import Basis
-
 
 class Eve:
     def __init__(self, num_qubits: int, qc: QuantumCircuit):
