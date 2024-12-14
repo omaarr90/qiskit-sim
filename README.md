@@ -1,3 +1,5 @@
+# To export pdf
+install xelatex: https://tug.org/mactex/mactex-download.html
 ## Hello QKD
 
 
@@ -12,6 +14,7 @@ source ./qkd-env/bin/activate
 
 ## install dep
 ```
+%pip install xelatex
 %pip install 'qiskit[visualization]'==1.3.0
 %pip install qiskit_aer
 %pip install qiskit_ibm_runtime
