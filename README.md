@@ -1,6 +1,6 @@
 # To export pdf
-install: pip install Pyrebase4
-install xelatex: https://tug.org/mactex/mactex-download.html
+```pip install 'nbconvert[webpdf]'```
+```jupyter nbconvert --to webpdf  qiskit-sim.ipynb```
 ## Hello QKD
 
 
